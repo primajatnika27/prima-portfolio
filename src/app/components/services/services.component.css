@@ -1,0 +1,268 @@
+.services-section {
+    background-color: #000;
+    /* Background color */
+    color: #fff;
+    /* Text color */
+    padding: 10px 0;
+    padding-left: 60px;
+    padding-right: 60px;
+    /* Vertical padding for the section */
+}
+
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    /* Menyejajarkan konten di kedua sisi */
+    align-items: flex-start;
+    /* Menyelaraskan item-item ke atas */
+    margin: 0 50px;
+    padding-bottom: 40px;
+    /* Margin horizontal */
+}
+
+.services-header h2 {
+    font-size: 36px;
+    /* Font size for the main title */
+    margin-bottom: 0;
+    /* Menghilangkan margin bawah */
+    max-width: 400px;
+    text-align: left;
+}
+
+.services-title-container {
+    display: flex;
+    flex-direction: column;
+    /* Menumpuk judul dan deskripsi secara vertikal */
+}
+
+.services-title {
+    display: flex;
+    align-items: center;
+    /* Menyelaraskan judul services ke kanan */
+}
+
+.services-line {
+    height: 2px;
+    width: 50px;
+    /* Width of the green line */
+    background-color: #64ffda;
+    /* Color of the line */
+    margin-right: 10px;
+    margin-top: 15px;
+    /* Space between the line and the title */
+}
+
+.services-header h3 {
+    font-size: 15px;
+    /* Font size for the services title */
+    margin-bottom: 0;
+    /* Menghilangkan margin bawah */
+}
+
+.services-title-container p {
+    font-size: 16px;
+    /* Ukuran font yang lebih kecil */
+    color: #808080;
+    /* Warna abu-abu */
+    margin-top: 5px;
+    /* Space above the description */
+    text-align: right;
+    /* Teks rata kanan */
+    max-width: 400px;
+}
+
+.services-header p {
+    font-size: 18px;
+    /* Font size for the description */
+    margin-top: 20px;
+    /* Space above the description */
+    text-align: left;
+    /* Teks rata kiri */
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    /* Distribute space evenly between service items */
+    margin: 0 50px;
+    /* Horizontal margin for the container */
+
+}
+
+.service-item {
+    flex-basis: calc(33.333% - 20px);
+    /* Width for each service item, accounting for margin */
+    margin: 0 10px;
+    /* Margin for spacing between items */
+    background-color: #111;
+    /* Slightly lighter background for the service item */
+    padding: 20px;
+    /* Padding inside each service item */
+    border-radius: 10px;
+    /* Rounded corners for the service item */
+    position: relative;
+    /* Memungkinkan posisi absolut untuk :after berdasarkan .service-item */
+    transition: all 0.3s ease;
+    /* Transisi halus untuk efek hover dan garis */
+}
+
+.service-item:after {
+    content: '';
+    /* Konten kosong, diperlukan untuk menampilkan :after */
+    position: absolute;
+    /* Posisi absolut relatif terhadap .service-item */
+    left: 0;
+    /* Mulai dari sisi kiri .service-item */
+    bottom: -10px;
+    /* Posisi di bawah .service-item */
+    width: 100%;
+    /* Lebar sama dengan .service-item */
+    height: 3px;
+    /* Tinggi garis */
+    background-color: #64ffda;
+    /* Warna hijau */
+    opacity: 0;
+    /* Awalnya tidak terlihat */
+    transition: opacity 0.3s ease;
+    /* Transisi untuk efek muncul */
+}
+
+.service-item:hover:after {
+    opacity: 1;
+    /* Membuat garis terlihat saat di-hover */
+}
+
+.service-item:hover {
+    background-color: #1a1a1a;
+    /* Warna latar belakang saat di-hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Menambahkan bayangan untuk efek "lift" */
+}
+
+.service-item img {
+    margin-bottom: 20px;
+    /* Space below the image */
+}
+
+.service-item h4 {
+    font-size: 24px;
+    /* Font size for service item title */
+    margin-bottom: 10px;
+    /* Space below the title */
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #808080;
+    /* Font size for service item description */
+}
+
+.framework-container {
+    display: flex;
+    flex-direction: row; /* Ini default, bisa dihilangkan */
+    justify-content: flex-start; /* Menengahkan item secara horizontal */
+    align-items: center; /* Menengahkan item secara vertikal */
+    gap: 30px; /* Jarak antar item */
+  }
+
+.framework {
+    display: flex;
+    flex-direction: column;
+    /* Ratakan konten ke kiri */
+    text-align: left;
+    /* Untuk teks */
+    align-items: flex-start;
+    /* Menengahkan secara horizontal */
+    justify-content: center;
+    /* Menengahkan secara vertikal */
+    text-align: center;
+    /* Menengahkan teks */
+    padding-top: 15px;
+}
+
+.framework-name {
+    position: relative;
+    text-align: center;
+    margin-top: 0;
+    margin: 0;
+    font-size: 14px;
+    /* Hapus margin default */
+}
+
+.framework-name::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    /* Sesuaikan posisi garis di bawah teks */
+    height: 2px;
+    /* Ketebalan garis */
+    background-color: green;
+    /* Warna garis */
+    margin: 0 auto;
+    /* Pusatkan garis */
+}
+
+.framework img {
+    width: 40px;
+    /* Atur sesuai kebutuhan */
+    height: 40px;
+    /* Atur sesuai kebutuhan */
+    margin: 0;
+    /* Hapus margin default */
+    padding: 0;
+    /* Hapus padding default */
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Menyelaraskan item ke tengah */
+        justify-content: center;
+        /* Menyelaraskan konten secara vertikal ke tengah */
+    }
+
+    .service-item {
+        max-width: 100%;
+        width: 100%;
+        flex-basis: 100%;
+        /* Buat item layanan memenuhi lebar layar */
+        margin-right: 0;
+        /* Hilangkan margin kanan */
+        margin-left: 0;
+        /* Hilangkan margin kiri */
+        /* Sesuaikan padding jika diperlukan */
+        padding: 20px 15px;
+        /* Contoh padding yang menyesuaikan */
+        margin-bottom: 20px;
+    }
+
+    .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Menyelaraskan item-item ke kiri pada mobile */
+    }
+
+    .services-title-container {
+        align-items: flex-start;
+        /* Menyelaraskan judul dan deskripsi ke kiri pada mobile */
+    }
+
+    .services-title {
+        justify-content: flex-start;
+        /* Menyelaraskan judul services ke kiri pada mobile */
+    }
+
+    .services-title-container p {
+        text-align: center;
+        /* Teks rata tengah pada mobile */
+        margin-top: 10px;
+        /* Mengurangi ruang di atas deskripsi pada mobile */
+        max-width: 100%;
+    }
+}

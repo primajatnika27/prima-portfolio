@@ -1,0 +1,152 @@
+.contact-section {
+    position: relative;
+    /* Menambahkan positioning relatif ke .contact-section */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    color: #fff;
+}
+
+.contact-content {
+    position: relative;
+    /* Untuk positioning pseudo-element */
+    /* Memberi ruang untuk garis hijau */
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* Mulai dari atas */
+    width: 4px;
+    /* Lebar garis */
+    height: 100%;
+    /* Tinggi garis mengikuti .contact-section */
+    background-color: #64ffda;
+    /* Warna hijau */
+    transition: background-color 0.3s ease;
+    /* Transisi untuk efek hover */
+}
+
+.contact-content h2 {
+    font-size: 32px;
+    /* Sesuaikan dengan ukuran font yang diinginkan */
+    margin: 0 0 10px 0;
+    /* Sesuaikan dengan margin yang diinginkan */
+    margin-left: 60px;
+}
+
+.contact-content p {
+    font-size: 18px;
+    /* Sesuaikan dengan ukuran font yang diinginkan */
+    margin: 0;
+    /* Sesuaikan dengan margin yang diinginkan */
+    margin-left: 60px;
+}
+
+.contact-button {
+    text-decoration: none;
+    background-color: #52d69a;
+    /* Warna latar belakang tombol */
+    color: #fff;
+    /* Warna teks tombol */
+    padding: 10px 20px;
+    /* Padding tombol */
+    font-size: 18px;
+    /* Ukuran font tombol */
+    border: none;
+    /* Tidak ada border */
+    cursor: pointer;
+    /* Cursor pointer untuk indikasi klik */
+    transition: background-color 0.3s ease;
+    /* Transisi untuk efek hover */
+    margin-right: 60px;
+}
+
+.contact-button:hover {
+    background-color: #64ffda;
+    /* Warna latar belakang tombol saat hover */
+}
+
+/* CSS untuk dialog pada layar dengan lebar di atas 600px */
+.custom-dialog-header {
+    width: 30vw; /* Lebar dialog untuk layar besar */
+    /* Penyesuaian posisi dan ukuran lainnya */
+  }
+  
+  /* CSS untuk layar dengan lebar maksimal 600px (perangkat mobile) */
+  @media (max-width: 600px) {
+    .custom-dialog-header {
+      width: 90vw; /* Lebar dialog diperbesar untuk layar kecil */
+      max-height: 90vh; /* Tinggi maksimal untuk memastikan dialog tidak terlalu panjang */
+      overflow-y: auto; /* Tambahkan scroll jika konten melebihi tinggi */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .modal-body {
+      margin: 10px 0; /* Kurangi margin untuk layar kecil */
+      display: block; /* Ubah layout jika perlu */
+    }
+    .modal-body .field {
+      margin-bottom: 15px; /* Sesuaikan jarak antar field */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .modal-body {
+      display: flex;
+      flex-direction: column; /* Tumpuk elemen secara vertikal pada layar kecil */
+    }
+  }
+
+/* Responsifitas */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 20px;
+        /* Kurangi padding untuk layar yang lebih kecil */
+        flex-direction: column;
+        /* Tumpuk elemen secara vertikal */
+        align-items: center;
+        /* Rata tengah elemen secara horizontal */
+    }
+
+    .contact-content {
+        margin-bottom: 20px;
+        /* Tambahkan margin bawah untuk memberi ruang antara konten dan form */
+        text-align: center;
+        /* Rata tengah teks */
+    }
+
+    .contact-content h2,
+    .contact-content p {
+        margin-left: 0;
+        /* Hilangkan margin kiri spesifik */
+        margin-right: 0;
+        /* Hilangkan margin kanan spesifik */
+    }
+
+    .contact-form {
+        width: 100%;
+        /* Buat form memenuhi lebar kontainer */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        /* Buat input dan textarea memenuhi lebar form */
+        margin: 10px 0;
+        /* Tambahkan margin vertikal */
+    }
+
+    .contact-button {
+        margin-left: 0;
+        /* Hilangkan margin kiri spesifik */
+        margin-right: 0;
+        /* Hilangkan margin kanan spesifik */
+        width: auto;
+        /* Sesuaikan lebar tombol */
+    }
+}

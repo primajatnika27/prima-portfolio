@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #000; /* #000 adalah kode warna untuk hitam */
+    margin: 0; /* Menghilangkan margin default */
+    padding: 0; /* Menghilangkan padding default */
+    color: #fff; /* Warna teks default untuk kontras yang baik dengan latar belakang hitam */
+    font-family: 'Roboto', sans-serif; /* Contoh font-family, sesuaikan dengan kebutuhan */
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.p-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.p-field label {
+  margin-right: 1rem;
+}
+
+.p-field input, .p-field textarea {
+  flex: 1;
+}
+
+a.active {
+  color: red; /* Atau gaya lain sesuai keinginan */
+}

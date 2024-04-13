@@ -1,0 +1,31 @@
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2>Testimonials</h2>
+        <h3>My happy clients</h3>
+        <div class="testimonial-slider">
+            <!-- Testimonial item -->
+            <div *ngFor="let testimonial of testimonials; let i = index" class="testimonial-item"
+                [ngClass]="{'active': testimonial.active}">
+                <p>{{ testimonial.quote }}</p>
+                <div class="testimonial-author">
+                    <img [src]="testimonial.image" alt="{{ testimonial.author }}">
+                    <div class="author-info">
+                        <strong>{{ testimonial.author }}</strong>
+                        <span>{{ testimonial.position }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider controls -->
+            <button class="slider-control left-control" (click)="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-control right-control" (click)="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+
+            <!-- Dots -->
+            <div class="testimonial-dots">
+                <div *ngFor="let testimonial of testimonials; let i = index" class="testimonial-dot"
+                    [class.active]="i === currentIndex" (click)="selectDot(i)">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

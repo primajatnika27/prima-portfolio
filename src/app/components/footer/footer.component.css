@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.footer {
+    background-color: #000;
+    /* Sesuaikan dengan warna latar belakang yang diinginkan */
+    color: #fff;
+    /* Warna teks */
+    font-family: 'Roboto', sans-serif;
+    /* Contoh font */
+    padding: 40px 120px;
+    /* Padding sekitar konten */
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    /* Jarak antara footer-top dan footer-bottom */
+}
+
+.footer-social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Menyelaraskan item ke tengah secara horizontal */
+    justify-content: center;
+    /* Menyelaraskan item ke tengah secara vertikal, jika perlu */
+    text-align: center;
+    /* Menyelaraskan teks ke tengah */
+}
+
+.footer-brand h2,
+.footer-info h3,
+.footer-social-media h3 {
+    color: #fff;
+    /* Warna hijau cerah untuk judul */
+    margin-bottom: 10px;
+    /* Jarak di bawah judul */
+}
+
+.footer-info p,
+.footer-social-media p {
+    color: #aaa;
+    /* Warna abu-abu terang untuk paragraf */
+    line-height: 1.6;
+    /* Tinggi baris untuk paragraf */
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Menyelaraskan teks dan garis */
+}
+
+.footer-bottom p {
+    color: #aaa;
+    /* Warna abu-abu terang untuk teks */
+}
+
+.brand-dot {
+    color: #64ffda;
+    /* Warna hijau terang hanya untuk titik */
+}
+
+.social-link {
+    color: #aaa;
+    /* Warna abu-abu terang untuk link */
+    text-decoration: none;
+    /* Menghilangkan garis bawah */
+    transition: color 0.3s ease;
+    /* Transisi warna untuk efek hover */
+}
+
+.social-link:hover {
+    color: #64ffda;
+    /* Warna hijau cerah saat di-hover */
+}
+
+.footer-social-media a {
+    color: #aaa;
+    /* Warna teks untuk link */
+    text-decoration: none;
+    /* Menghilangkan garis bawah */
+    margin-right: 20px;
+    /* Jarak antara link */
+    transition: color 0.3s ease;
+    /* Transisi warna untuk efek hover */
+}
+
+.footer-social-media a:hover {
+    color: #64ffda;
+    /* Warna hijau cerah saat di-hover */
+}
+
+.footer-line {
+    flex-grow: 1;
+    /* Garis tumbuh untuk mengisi ruang yang tersedia */
+    height: 1px;
+    background-color: #333;
+    /* Warna garis */
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Menyelaraskan item ke tengah secara horizontal */
+    justify-content: center;
+    /* Menyelaraskan item ke tengah secara vertikal, jika perlu */
+    text-align: center;
+    /* Menyelaraskan teks ke tengah */
+    /* Gaya lainnya */
+}
+
+/* Responsifitas */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px;
+        /* Sesuaikan padding untuk layar yang lebih kecil */
+    }
+
+    .footer-top {
+        flex-direction: column;
+        /* Tumpuk elemen secara vertikal */
+        align-items: center;
+        /* Rata tengah elemen secara horizontal */
+        margin-bottom: 20px;
+        /* Tambahkan margin bawah untuk memberi ruang antara bagian atas dan bawah footer */
+    }
+
+    .footer-brand,
+    .footer-info,
+    .footer-social-media {
+        margin-bottom: 15px;
+        /* Tambahkan margin bawah antar elemen */
+    }
+
+    .footer-brand h2,
+    .footer-info h3,
+    .footer-social-media h3 {
+        font-size: 18px;
+        /* Sesuaikan ukuran font untuk judul */
+    }
+
+    .footer-info p,
+    .footer-social-media p {
+        font-size: 14px;
+        /* Sesuaikan ukuran font untuk paragraf */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        /* Tumpuk elemen secara vertikal */
+        align-items: center;
+        /* Rata tengah elemen secara horizontal */
+        text-align: center;
+        /* Rata tengah teks */
+    }
+
+    .footer-bottom p {
+        margin-bottom: 10px;
+        /* Tambahkan margin bawah untuk teks */
+    }
+
+    .social-link,
+    .footer-social-media a {
+        margin-right: 10px;
+        /* Sesuaikan jarak antar link sosial media */
+        margin-bottom: 10px;
+        /* Tambahkan margin bawah untuk link sosial media */
+    }
+
+    .footer-line {
+        width: 100%;
+        /* Sesuaikan lebar garis */
+        margin: 20px 0;
+        /* Tambahkan margin vertikal untuk garis */
+    }
+}
