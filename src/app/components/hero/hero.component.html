@@ -1,17 +1,64 @@
-<div id="home" class="hero">
-    <div class="hero-content">
-        <h2>Hello, I'm <span class="highlight">{{ typedText }}</span></h2>
-        <h1>Mobile Engineer</h1>
-        <p>I have experience as Software Developer especially as Fullstack Engineer and Mobile Engineer (iOS and
-            Android) for more than 3 years in Banking application, MSME application and etc.</p>
-        <div class="hero-buttons">
-            <a (click)="sendEmail()" class="btn btn-green">Email Me</a>
-            <a (click)="downloadCV()" class="btn btn-outline" download>
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </div>
+<section id="home" class="hero">
+  <div class="floating-icons">
+    <!-- Mobile Platforms -->
+    <i class="fab fa-android floating-icon-1"></i>
+    <i class="fab fa-apple floating-icon-2"></i>
+    <i class="fab fa-react floating-icon-3"></i>
+    <i class="fab fa-flutter floating-icon-4"></i>
+    <!-- Mobile Dev Icons -->
+    <i class="fas fa-mobile-alt floating-icon-5"></i>
+    <i class="fas fa-tablet-alt floating-icon-1"></i>
+    <i class="fas fa-code floating-icon-2"></i>
+    <i class="fas fa-bug floating-icon-3"></i>
+    <!-- Programming Icons -->
+    <i class="fab fa-js-square floating-icon-4"></i>
+    <i class="fab fa-swift floating-icon-5"></i>
+    <i class="fab fa-kotlin floating-icon-1"></i>
+    <i class="fab fa-java floating-icon-2"></i>
+    <!-- Tools -->
+    <i class="fab fa-git-alt floating-icon-3"></i>
+    <i class="fab fa-npm floating-icon-4"></i>
+    <i class="fab fa-docker floating-icon-5"></i>
+    <i class="fab fa-github floating-icon-1"></i>
+  </div>
+  <div class="hero-content">
+    <div class="intro-text">
+      <span class="code-comment">// Hello World, I am</span>
+      <h2><span class="highlight">{{ typedText }}</span></h2>
+      <h1 class="glitch" data-text="Mobile Engineer">Mobile Engineer</h1>
     </div>
-    <div class="hero-image">
-        <img src="assets/profile_picture.jpeg" alt="Profile Image">
+    <div class="code-block">
+      <span class="code-line">const developer = {{ '{' }}</span>
+      <span class="code-line indent">role: "Mobile Engineer",</span>
+      <span class="code-line indent">experience: "5+ years",</span>
+      <span class="code-line indent"
+        >expertise: ["iOS", "Android", "Banking Apps", "MSME Apps"]</span
+      >
+      <span class="code-line">{{ '}' }};</span>
     </div>
-</div>
+    <p>
+      I have experience as Software Developer especially as Fullstack Engineer
+      and Mobile Engineer (iOS and Android) for more than 3 years in Banking
+      application, MSME application and etc.
+    </p>
+    <div class="mobile-platforms">
+      <i class="fab fa-android"></i>
+      <i class="fab fa-apple"></i>
+      <i class="fab fa-react"></i>
+      <i class="fab fa-flutter"></i>
+    </div>
+    <div class="hero-buttons">
+      <a (click)="sendEmail()" class="btn btn-green animate">
+        <i class="fas fa-envelope"></i>
+        <span class="btn-text">Email Me</span>
+      </a>
+      <a (click)="downloadCV()" class="btn btn-outline-white animate" download>
+        <i class="fas fa-download"></i>
+        <span class="btn-text">Download CV</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/profile_picture.jpeg" alt="Profile Image" />
+  </div>
+</section>

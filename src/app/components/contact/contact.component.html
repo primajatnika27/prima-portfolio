@@ -1,33 +1,87 @@
-<div id="contact" class="contact-section">
-  <div class="contact-content">
-    <h2>Have any project in mind?</h2>
-    <p>Feel free to contact me or just say friendly hello!</p>
+<section id="contact" class="contact-section reveal">
+  <div class="pixel-overlay"></div>
+  <div class="mobile-devices">
+    <div class="device android"></div>
+    <div class="device iphone"></div>
   </div>
-  <button (click)="showDialog()" class="contact-button">Contact Me</button>
-  <!-- <a (click)="showDialog()" class="contact-button">Contact Me</a> -->
-</div>
 
-<p-dialog header="Contact Me" [(visible)]="display" [modal]="true" [draggable]="false"
-  [resizable]="true" [contentStyle]="{'overflow':'hidden'}" class="custom-dialog-header">
-  <div class="modal-body">
-    <div>
-    </div>
-    <div>
-      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)" class="p-fluid">
-        <div class="p-formgroup-inline">
-          <div class="field">
-            <label for="name" class="block">Nama</label>
-            <input id="name" type="username" aria-describedby="name-help" pInputText ngModel [ngModelOptions]="{standalone: true}" />
-            <small id="name-help" class="block">Enter your name or alias.</small>
-          </div>
-          <br>
-          <div class="field">
-            <textarea id="message" rows="7" cols="29" name="message" ngModel [ngModelOptions]="{standalone: true}" required pInputTextarea></textarea>
-          </div>
-          <br>
-          <button style="background-color: #52d69a;" type="submit" pButton label="Kirim" icon="pi pi-check"></button>
+  <div class="contact-container">
+    <div class="contact-content">
+      <div class="section-header">
+        <div class="title-container">
+          <span class="section-line"></span>
+          <h2 class="glitch-text" data-text="Contact">Contact</h2>
         </div>
-      </form>
+        <h3 class="console-text">> Ready to start a new project?_</h3>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-card game-card">
+          <div class="card-glow"></div>
+          <div class="contact-icon">
+            <i class="fas fa-envelope pixel-icon"></i>
+          </div>
+          <h4 class="pixel-text">Email</h4>
+          <p class="console-text">
+            <span>primajatnika271995</span>
+            <span>&#64;</span>
+            <span>gmail.com</span>
+          </p>
+          <a
+            href="mailto:primajatnika271995&#64;gmail.com"
+            class="contact-link pixel-button"
+          >
+            <span class="btn-text">Send Email</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="contact-card game-card">
+          <div class="card-glow"></div>
+          <div class="contact-icon">
+            <i class="fab fa-github pixel-icon"></i>
+          </div>
+          <h4 class="pixel-text">GitHub</h4>
+          <p class="console-text">Mobile Development Projects</p>
+          <a
+            href="https://github.com/primajatnika27"
+            target="_blank"
+            class="contact-link pixel-button"
+          >
+            <span class="btn-text">View Code</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="contact-card game-card">
+          <div class="card-glow"></div>
+          <div class="contact-icon">
+            <i class="fab fa-linkedin pixel-icon"></i>
+          </div>
+          <h4 class="pixel-text">LinkedIn</h4>
+          <p class="console-text">Connect Professionally</p>
+          <a
+            href="https://linkedin.com/in/primajatnika271995"
+            target="_blank"
+            class="contact-link pixel-button"
+          >
+            <span class="btn-text">View Profile</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-cta game-card">
+        <div class="card-glow"></div>
+        <h3 class="pixel-text">Start New Quest?</h3>
+        <p class="console-text">> Let's build your next mobile app together!</p>
+        <button class="cta-button pixel-button">
+          <span class="btn-text">Start Mission</span>
+          <i class="fas fa-gamepad"></i>
+        </button>
+      </div>
     </div>
   </div>
-</p-dialog>
+</section>
+
+<p-toast></p-toast>

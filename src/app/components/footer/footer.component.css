@@ -1,180 +1,247 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .footer {
-    background-color: #000;
-    /* Sesuaikan dengan warna latar belakang yang diinginkan */
-    color: #fff;
-    /* Warna teks */
-    font-family: 'Roboto', sans-serif;
-    /* Contoh font */
-    padding: 40px 120px;
-    /* Padding sekitar konten */
+    background: #1a1b26;
+    padding: 40px 0 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.footer-top {
+.pixel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(transparent 50%, rgba(32, 35, 48, 0.8) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.03), rgba(0, 0, 255, 0.03));
+    background-size: 4px 4px, 100% 100%;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
-    /* Jarak antara footer-top dan footer-bottom */
+    align-items: center;
+    gap: 40px;
 }
 
-.footer-social-media {
+.footer-brand {
+    flex-shrink: 0;
+}
+
+.brand-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.pixel-text {
+    color: #64ffda;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.console-text {
+    color: #8892b0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+.console-text::after {
+    content: '_';
+    animation: blink 1s infinite;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 30px;
+}
+
+.tech-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Menyelaraskan item ke tengah secara horizontal */
-    justify-content: center;
-    /* Menyelaraskan item ke tengah secara vertikal, jika perlu */
-    text-align: center;
-    /* Menyelaraskan teks ke tengah */
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-.footer-brand h2,
-.footer-info h3,
-.footer-social-media h3 {
-    color: #fff;
-    /* Warna hijau cerah untuk judul */
-    margin-bottom: 10px;
-    /* Jarak di bawah judul */
+.tech-icon:hover {
+    transform: translateY(-5px);
 }
 
-.footer-info p,
-.footer-social-media p {
-    color: #aaa;
-    /* Warna abu-abu terang untuk paragraf */
-    line-height: 1.6;
-    /* Tinggi baris untuk paragraf */
+.tech-icon i {
+    color: #64ffda;
+    font-size: 2rem;
+    filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.5));
+}
+
+.tech-label {
+    color: #8892b0;
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 20px;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Menyelaraskan teks dan garis */
-}
-
-.footer-bottom p {
-    color: #aaa;
-    /* Warna abu-abu terang untuk teks */
-}
-
-.brand-dot {
-    color: #64ffda;
-    /* Warna hijau terang hanya untuk titik */
-}
-
-.social-link {
-    color: #aaa;
-    /* Warna abu-abu terang untuk link */
-    text-decoration: none;
-    /* Menghilangkan garis bawah */
-    transition: color 0.3s ease;
-    /* Transisi warna untuk efek hover */
-}
-
-.social-link:hover {
-    color: #64ffda;
-    /* Warna hijau cerah saat di-hover */
-}
-
-.footer-social-media a {
-    color: #aaa;
-    /* Warna teks untuk link */
-    text-decoration: none;
-    /* Menghilangkan garis bawah */
-    margin-right: 20px;
-    /* Jarak antara link */
-    transition: color 0.3s ease;
-    /* Transisi warna untuk efek hover */
-}
-
-.footer-social-media a:hover {
-    color: #64ffda;
-    /* Warna hijau cerah saat di-hover */
-}
-
-.footer-line {
-    flex-grow: 1;
-    /* Garis tumbuh untuk mengisi ruang yang tersedia */
-    height: 1px;
-    background-color: #333;
-    /* Warna garis */
-}
-
-.footer-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Menyelaraskan item ke tengah secara horizontal */
     justify-content: center;
-    /* Menyelaraskan item ke tengah secara vertikal, jika perlu */
-    text-align: center;
-    /* Menyelaraskan teks ke tengah */
-    /* Gaya lainnya */
+    align-items: center;
 }
 
-/* Responsifitas */
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 @media (max-width: 768px) {
-    .footer {
-        padding: 20px;
-        /* Sesuaikan padding untuk layar yang lebih kecil */
-    }
-
-    .footer-top {
+    .footer-content {
         flex-direction: column;
-        /* Tumpuk elemen secara vertikal */
-        align-items: center;
-        /* Rata tengah elemen secara horizontal */
-        margin-bottom: 20px;
-        /* Tambahkan margin bawah untuk memberi ruang antara bagian atas dan bawah footer */
-    }
-
-    .footer-brand,
-    .footer-info,
-    .footer-social-media {
-        margin-bottom: 15px;
-        /* Tambahkan margin bawah antar elemen */
-    }
-
-    .footer-brand h2,
-    .footer-info h3,
-    .footer-social-media h3 {
-        font-size: 18px;
-        /* Sesuaikan ukuran font untuk judul */
-    }
-
-    .footer-info p,
-    .footer-social-media p {
-        font-size: 14px;
-        /* Sesuaikan ukuran font untuk paragraf */
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        /* Tumpuk elemen secara vertikal */
-        align-items: center;
-        /* Rata tengah elemen secara horizontal */
         text-align: center;
-        /* Rata tengah teks */
+        gap: 30px;
     }
 
-    .footer-bottom p {
-        margin-bottom: 10px;
-        /* Tambahkan margin bawah untuk teks */
+    .tech-stack {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .social-link,
-    .footer-social-media a {
-        margin-right: 10px;
-        /* Sesuaikan jarak antar link sosial media */
-        margin-bottom: 10px;
-        /* Tambahkan margin bawah untuk link sosial media */
+    .tech-icon {
+        width: 80px;
     }
+}
 
-    .footer-line {
-        width: 100%;
-        /* Sesuaikan lebar garis */
-        margin: 20px 0;
-        /* Tambahkan margin vertikal untuk garis */
-    }
+.floating-devices {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.1;
+}
+
+.device {
+  position: absolute;
+  border: 2px solid #64ffda;
+  border-radius: 20px;
+  background: rgba(100, 255, 218, 0.05);
+}
+
+.android {
+  width: 120px;
+  height: 240px;
+  left: 10%;
+  top: 20%;
+  animation: float 8s infinite ease-in-out;
+  transform: rotate(-15deg);
+}
+
+.iphone {
+  width: 110px;
+  height: 230px;
+  right: 10%;
+  top: 30%;
+  animation: float 10s infinite ease-in-out reverse;
+  transform: rotate(15deg);
+}
+
+.notch {
+  width: 40px;
+  height: 15px;
+  background: #64ffda;
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+}
+
+.screen {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.app-icon {
+  width: 20px;
+  height: 20px;
+  background: #64ffda;
+  border-radius: 5px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.code-snippet {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-family: 'Fira Code', monospace;
+  color: #64ffda;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: type 4s steps(50) infinite;
+}
+
+.code-line {
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-15deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-15deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-devices {
+    opacity: 0.05;
+  }
+
+  .device {
+    transform: scale(0.8);
+  }
 }

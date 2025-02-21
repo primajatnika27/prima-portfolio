@@ -5,7 +5,9 @@ body {
     padding: 0; /* Menghilangkan padding default */
     color: #fff; /* Warna teks default untuk kontras yang baik dengan latar belakang hitam */
     font-family: 'Roboto', sans-serif; /* Contoh font-family, sesuaikan dengan kebutuhan */
-  }
+    width: 100%;
+    /* overflow-x: hidden; */ /* Hapus ini jika menyebabkan masalah */
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -26,4 +28,193 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 a.active {
   color: red; /* Atau gaya lain sesuai keinginan */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Untuk mengakomodasi fixed navbar */
+}
+
+/* Untuk browser yang mendukung :root */
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Untuk browser yang mendukung scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1b26;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64ffda33;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64ffda66;
+}
+
+/* Selection color */
+::selection {
+  background: #64ffda33;
+  color: #64ffda;
+}
+
+/* Cursor custom */
+* {
+  cursor: none;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #64ffda;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background: #64ffda;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.15s ease-out;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover effects untuk links */
+a, button {
+  cursor: pointer !important;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: #64ffda11;
+}
+
+/* Loading bar di atas */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, #64ffda, #0a192f);
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Smooth reveal animation untuk elemen saat scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variasi reveal animations - percepat semuanya */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.4s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.4s ease;
+}
+
+.reveal-top {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.4s ease;
+}
+
+.reveal-bottom {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+/* Active states */
+.reveal-left.active,
+.reveal-right.active,
+.reveal-top.active,
+.reveal-bottom.active,
+.reveal-rotate.active,
+.reveal-scale.active {
+  opacity: 1;
+  transform: translate(0) rotate(0) scale(1);
+}
+
+/* Kurangi delay antar items */
+.delay-1 { transition-delay: 0.05s; }
+.delay-2 { transition-delay: 0.1s; }
+.delay-3 { transition-delay: 0.15s; }
+.delay-4 { transition-delay: 0.2s; }
+.delay-5 { transition-delay: 0.25s; }
+
+.testimonials {
+    padding: 100px 0;
+    background: linear-gradient(
+        to bottom,
+        #112240 0%,
+        #1d3557 100%
+    );
+    color: #fff;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Mencegah overflow di dalam section */
+}
+
+.testimonial-grid {
+    max-width: 1000px;
+    width: 100%; /* Pastikan grid tidak melebihi lebar */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    box-sizing: border-box; /* Pastikan padding dihitung dalam lebar */
+}
+
+/* Pastikan device background tidak menyebabkan overflow */
+.device-background {
+    position: absolute;
+    inset: 0; /* Lebih modern dari top/right/bottom/left: 0 */
+    pointer-events: none;
+    opacity: 0.1;
+    overflow: hidden;
 }

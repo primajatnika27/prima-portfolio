@@ -1,10 +1,9 @@
 .hero {
-  background-color: #000;
+  background-color: #0a192f;
   /* Background color */
   color: #fff;
   /* Text color */
-  padding: 100px;
-  /* Padding on all sides */
+  padding: 120px 100px;  /* Memperbesar padding horizontal dan vertical */
   padding-top: 150px;
   text-align: left;
   /* Align text to the left */
@@ -14,6 +13,9 @@
   /* Pusatkan item secara vertikal */
   justify-content: space-between;
   /* Berikan ruang antara konten dan gambar */
+  gap: 60px;  /* Menambah jarak antara konten dan gambar */
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
@@ -36,17 +38,71 @@
   }
 }
 
+@keyframes profileAnimation {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
+
 .hero-image {
-  flex: 0 0 auto; /* Jangan biarkan gambar profil tumbuh atau menyusut */
+  position: relative;
+  width: 220px;  /* Ukuran lebih kecil */
+  height: 220px;
+  padding: 10px;
+  border-radius: 50%;  /* Membuat frame menjadi circle */
+  background: rgba(100, 255, 218, 0.1);
+  border: 2px solid rgba(100, 255, 218, 0.3);
+  animation: deviceNotification 5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 40px;
+  width: 8px;
+  height: 8px;
+  background: #64ffda;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #64ffda;
+  animation: blink 2s infinite;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  width: 8px;
+  height: 8px;
+  background: #64ffda;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #64ffda;
+  animation: blink 2s infinite 1s;
 }
 
 .hero-image img {
-  width: 200px; /* Atur lebar gambar */
-  height: 200px; /* Atur tinggi gambar agar sama dengan lebar */
-  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
-  object-fit: cover; /* Pastikan gambar menutupi area tanpa distorsi */
-  max-width: none; /* Override max-width sebelumnya jika ada */
-  animation: fadeIn 1s ease-out; 
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
 }
 
 @keyframes blinkCursor {
@@ -65,6 +121,7 @@
   border-right: 2px solid black; /* Cursor simulasi */
   animation: blinkCursor 0.75s steps(5) infinite;
   color: #64ffda;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
 }
 
 .highlight::after {
@@ -80,6 +137,8 @@ h1 {
   /* Bold font weight */
   margin-bottom: 20px;
   /* Space below the title */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -89,6 +148,8 @@ h2 {
   /* Lighter font weight */
   margin-bottom: 30px;
   /* Space below the subtitle */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .hero p {
@@ -99,81 +160,94 @@ h2 {
   margin-bottom: 40px;
   /* Space below the paragraph */
   color: #808080;
+  max-width: 540px;  /* Membatasi lebar paragraf agar lebih mudah dibaca */
 }
 
 .hero-buttons {
   display: flex;
-  gap: 20px;
-  /* Space between buttons */
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .btn {
-  text-decoration: none;
-  padding: 15px 30px;
-  /* Padding inside the buttons */
-  border-radius: 1px;
-  /* Rounded corners for the buttons */
-  transition: all 0.3s ease-in-out;
-  /* Smooth transition for hover effects */
-  font-size: 18px;
-  /* Font size for button text */
-  font-weight: bold;
-  /* Bold font weight for button text */
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(100, 255, 218, 0.3);
+  background: rgba(100, 255, 218, 0.1);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(100, 255, 218, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn i {
+  margin-right: 12px;
+  font-size: 1.1em;
 }
 
 .btn-green {
-  background-color: #64ffda;
-  /* Background color for the primary button */
-  color: #000;
-  /* Text color for the primary button */
-}
-
-.btn-outline {
-  background-color: transparent;
-  /* Latar belakang transparan */
-  color: #fff;
-  /* Warna teks putih */
-  border: none;
-  /* Tidak ada border */
-  padding: 10px 25px;
-  /* Padding yang cukup untuk membuat tombol terlihat besar */
-  font-size: 16px;
-  /* Ukuran font yang sesuai */
-  text-transform: uppercase;
-  /* Opsi untuk membuat teks menjadi huruf kapital */
-  font-weight: bold;
-  /* Membuat teks lebih tebal */
-  border-radius: 0;
-  /* Border radius 0 untuk bentuk tombol persegi */
-  transition: color 0.3s;
-  /* Transisi untuk efek hover */
-  text-decoration: none;
-  /* Menghilangkan garis bawah teks */
-  display: inline-flex;
-  /* Menggunakan flexbox untuk menyelaraskan teks dan ikon */
-  align-items: center;
-  /* Menyelaraskan item-item secara vertikal */
-  gap: 10px;
-  /* Jarak antara ikon dan teks */
-}
-
-.btn-outline:hover {
+  background: transparent;
   color: #64ffda;
-  /* Warna teks hijau terang saat hover */
-  text-decoration: none;
-  /* Menghilangkan garis bawah teks saat hover */
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.btn-green:hover {
+  background: rgba(100, 255, 218, 0.1);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: #64ffda;
+  border: 2px solid #64ffda;
+}
+
+.btn-outline-white:hover {
+  background: rgba(100, 255, 218, 0.1);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-text {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 /* Responsifitas */
 @media (max-width: 768px) {
   .hero {
-    padding: 50px 20px;
-    /* Kurangi padding untuk layar yang lebih kecil */
+    padding: 80px 24px;  /* Mengurangi padding untuk mobile tapi tetap memberi ruang */
     text-align: center;
-    /* Teks rata tengah untuk tampilan mobile */
-    flex-direction: column-reverse; /* Tumpuk elemen secara vertikal dan letakkan gambar di atas */
-    align-items: center; /* Pusatkan item secara horizontal */
+    flex-direction: column-reverse;
+    align-items: center;
     margin-top: 70px;
+    gap: 40px;  /* Mengurangi gap untuk mobile */
   }
 
   .hero-content {
@@ -186,15 +260,13 @@ h2 {
   }
 
   .hero-image {
-    width: 100%; /* Atur lebar elemen menjadi 100% dari kontainer */
-    text-align: center; /* Pusatkan teks untuk .hero-content */
+    width: 180px;
+    height: 180px;
   }
 
   .hero-image img {
-    width: 120px; /* Sesuaikan ukuran gambar profil pada layar ponsel */
-    height: 120px; /* Pastikan tinggi sama dengan lebar untuk menjaga bentuk lingkaran */
-    margin-bottom: 20px; /* Tambahkan margin di bawah gambar */
-    animation: fadeIn 1s ease-out; 
+    width: 160px;
+    height: 160px;
   }
 
   h1 {
@@ -226,8 +298,8 @@ h2 {
   }
 
   .btn {
-    padding: 10px 25px;
-    /* Kurangi padding dalam tombol */
+    width: 100%;
+    justify-content: center;
   }
 
   .btn-outline {
@@ -250,5 +322,333 @@ h2 {
   .btn-outline i {
     margin-right: 8px;
     /* Tambahkan margin kanan pada ikon jika diperlukan */
+  }
+
+  .mobile-platforms {
+    font-size: 24px;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+/* Tambahkan animasi neon pulse */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda, 0 0 20px #64ffda;
+  }
+  50% {
+    box-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda, 0 0 40px #64ffda;
+  }
+  100% {
+    box-shadow: 0 0 5px #64ffda, 0 0 10px #64ffda, 0 0 20px #64ffda;
+  }
+}
+
+/* Tambahkan animasi grid background */
+@keyframes gridAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Tambahkan animasi gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tambahkan efek glow lines */
+.hero::before {
+  content: '🔵';
+  font-family: 'Font Awesome 5 Brands';
+  position: absolute;
+  font-size: 24px;
+  color: rgba(100, 255, 218, 0.05);
+  animation: floatingIcons 15s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-icons i {
+  position: absolute;
+  color: rgba(100, 255, 218, 0.1);
+  font-size: 24px;
+}
+
+.floating-icon-1 { animation: float1 20s linear infinite; }
+.floating-icon-2 { animation: float2 25s linear infinite 2s; }
+.floating-icon-3 { animation: float3 22s linear infinite 4s; }
+.floating-icon-4 { animation: float4 28s linear infinite 1s; }
+.floating-icon-5 { animation: float5 24s linear infinite 3s; }
+
+@keyframes float1 {
+  0% {
+    transform: translate(-100px, -100px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), calc(100vh + 100px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(calc(100vw + 100px), -100px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-100px, calc(100vh + 100px)) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(50vw, -100px) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(25vw, 50vh) scale(1);
+  }
+  100% {
+    transform: translate(75vw, calc(100vh + 100px)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translate(-100px, 50vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), 25vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translate(calc(100vw + 100px), 50vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-100px, 75vh) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* Animasi untuk device frame */
+@keyframes deviceNotification {
+  0% { transform: scale(1); }
+  5% { transform: scale(1.02) rotate(2deg); }
+  10% { transform: scale(1) rotate(-2deg); }
+  15% { transform: scale(1.01) rotate(1deg); }
+  20% { transform: scale(1) rotate(0); }
+  100% { transform: scale(1); }
+}
+
+/* Animasi untuk code lines di background */
+@keyframes codeLine {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* Tambahkan elemen code di background */
+.hero::before, .hero::after {
+  content: '{  }  < />  ||  &&  =>  async  await  interface  class';
+  position: absolute;
+  color: rgba(100, 255, 218, 0.05);
+  font-family: monospace;
+  white-space: nowrap;
+  font-size: 14px;
+  animation: codeLine 20s linear infinite;
+}
+
+.hero::before {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.hero::after {
+  right: 0;
+  transform: rotate(45deg);
+}
+
+/* Mobile platforms style */
+.mobile-platforms {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  color: #64ffda;
+  font-size: 28px;
+}
+
+.mobile-platforms i {
+  transition: all 0.3s ease;
+}
+
+.mobile-platforms i:hover {
+  transform: translateY(-5px);
+  text-shadow: 0 0 15px #64ffda;
+}
+
+.intro-text {
+  margin-bottom: 2rem;
+}
+
+.code-comment {
+  color: #64ffda;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.code-block {
+  font-family: 'Fira Code', monospace;
+  background: rgba(100, 255, 218, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #64ffda;
+  opacity: 0.5;
+}
+
+.code-line {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.indent {
+  margin-left: 1.5rem;
+}
+
+.code-variable {
+  color: #ff79c6;
+}
+
+.code-string {
+  color: #64ffda;
+}
+
+/* Glitch effect untuk Mobile Engineer */
+.glitch {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                0.025em 0.04em 0 #fffc00;
+  animation: glitch 725ms infinite;
+}
+
+.glitch span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00fc;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                 0.025em 0.04em 0 #fffc00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                 0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                 -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                 -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                 0 -0.04em 0 #fffc00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                 0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+                 -0.04em -0.025em 0 #fffc00;
   }
 }

@@ -1,47 +1,117 @@
 <section id="services" class="services-section">
-    <div class="services-header">
-        <h2>4+ years experience working</h2>
-        <div class="services-title-container">
-            <div class="services-title">
-                <span class="services-line"></span>
-                <h3>Services</h3>
-            </div>
-            <p>Discover the best services I offer, designed to ensure the success of your project.</p>
-        </div>
+  <div class="decoration-circle"></div>
+  <div class="tech-lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="services-header">
+    <h2 class="experience-text">
+      <span class="highlight-number">5+</span> years of experience
+      <div class="experience-badge">
+        <i class="fas fa-medal"></i>
+        <span>Professional</span>
+      </div>
+    </h2>
+    <div class="services-title-container">
+      <div class="services-title">
+        <span class="services-line"></span>
+        <h3>My Services</h3>
+      </div>
+      <p class="services-subtitle">
+        Specialized in mobile development with expertise in various platforms
+        and technologies
+      </p>
     </div>
-    <div class="services-container">
-        <!-- Service Item 1 -->
-        <div class="service-item">
-            <img src="assets/icon-fe.svg" alt="Mobile Developer" class="service-icon">
-            <h4>Mobile Developer</h4>
-            <div class="framework-container">
-                <div class="framework" *ngFor="let framework of frameworks_mobile">
-                    <img [src]="'assets/icons/' + framework.icon" [alt]="framework.name">
-                    <div class="framework-name">{{framework.name}}</div>
-                </div>
-            </div>
+  </div>
+  <div class="services-container">
+    <!-- Mobile Development -->
+    <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="service-number">01</div>
+      <div class="service-icon-wrapper">
+        <i class="fas fa-mobile-alt"></i>
+        <div class="icon-background"></div>
+      </div>
+      <h4>Mobile Development</h4>
+      <p class="service-description">
+        Native and cross-platform mobile app development with modern
+        technologies
+      </p>
+      <div class="tech-stack">
+        <div class="tech-item" *ngFor="let framework of frameworks_mobile">
+          <img
+            [src]="'assets/icons/' + framework.icon"
+            [alt]="framework.name"
+          />
+          <span class="tech-name">{{framework.name}}</span>
+          <div class="tech-tooltip">{{framework.description}}</div>
         </div>
-        <!-- Service Item 2 -->
-        <div class="service-item">
-            <img src="assets/icon-fe.svg" alt="Frontend Developer" class="service-icon">
-            <h4>Frontend Developer</h4>
-            <div class="framework-container">
-                <div class="framework" *ngFor="let framework of frameworks_fe">
-                    <img [src]="'assets/icons/' + framework.icon" [alt]="framework.name">
-                    <div class="framework-name">{{framework.name}}</div>
-                </div>
-            </div>
-        </div>
-        <!-- Service Item 3 -->
-        <div class="service-item">
-            <img src="assets/icon-fe.svg" alt="Backend Developer" class="service-icon">
-            <h4>Backend Developer</h4>
-            <div class="framework-container">
-                <div class="framework" *ngFor="let framework of frameworks_be">
-                    <img [src]="'assets/icons/' + framework.icon" [alt]="framework.name">
-                    <div class="framework-name">{{framework.name}}</div>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="service-hover-info">
+        <span class="years-active">5+ Years</span>
+        <span class="projects-count">7+ Projects</span>
+      </div>
     </div>
+    <!-- Frontend Development -->
+    <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="service-number">02</div>
+      <div class="service-icon-wrapper">
+        <i class="fas fa-code"></i>
+        <div class="icon-background"></div>
+      </div>
+      <h4>Frontend Development</h4>
+      <p class="service-description">
+        Creating responsive and interactive web applications
+      </p>
+      <div class="tech-stack">
+        <div class="tech-item" *ngFor="let framework of frameworks_fe">
+          <img
+            [src]="'assets/icons/' + framework.icon"
+            [alt]="framework.name"
+          />
+          <span class="tech-name">{{framework.name}}</span>
+          <div class="tech-tooltip">{{framework.description}}</div>
+        </div>
+      </div>
+      <div class="service-hover-info">
+        <span class="years-active">3+ Years</span>
+        <span class="projects-count">4+ Projects</span>
+      </div>
+    </div>
+    <!-- Backend Development -->
+    <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="service-number">03</div>
+      <div class="service-icon-wrapper">
+        <i class="fas fa-server"></i>
+        <div class="icon-background"></div>
+      </div>
+      <h4>Backend Development</h4>
+      <p class="service-description">
+        Building scalable server-side applications and APIs
+      </p>
+      <div class="tech-stack">
+        <div class="tech-item" *ngFor="let framework of frameworks_be">
+          <img
+            [src]="'assets/icons/' + framework.icon"
+            [alt]="framework.name"
+          />
+          <span class="tech-name">{{framework.name}}</span>
+          <div class="tech-tooltip">{{framework.description}}</div>
+        </div>
+      </div>
+      <div class="service-hover-info">
+        <span class="years-active">3+ Years</span>
+        <span class="projects-count">4+ Projects</span>
+      </div>
+    </div>
+  </div>
+  <button
+    class="scroll-to-top"
+    [class.show]="showScrollButton"
+    (click)="scrollToTop()"
+    aria-label="Scroll to top"
+  >
+    <i class="fas fa-chevron-up"></i>
+  </button>
 </section>

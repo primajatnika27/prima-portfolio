@@ -1,268 +1,441 @@
 .services-section {
-    background-color: #000;
-    /* Background color */
+    padding: 100px 0;
+    background: linear-gradient(
+        to bottom,
+        #0a192f 0%,
+        #112240 5%,
+        #112240 95%,
+        #0a192f 100%
+    );
     color: #fff;
-    /* Text color */
-    padding: 10px 0;
-    padding-left: 60px;
-    padding-right: 60px;
-    /* Vertical padding for the section */
+    position: relative;
+    overflow-x: hidden;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+        radial-gradient(rgba(100, 255, 218, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .services-header {
-    display: flex;
-    justify-content: space-between;
-    /* Menyejajarkan konten di kedua sisi */
-    align-items: flex-start;
-    /* Menyelaraskan item-item ke atas */
-    margin: 0 50px;
-    padding-bottom: 40px;
-    /* Margin horizontal */
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-.services-header h2 {
-    font-size: 36px;
-    /* Font size for the main title */
-    margin-bottom: 0;
-    /* Menghilangkan margin bawah */
-    max-width: 400px;
-    text-align: left;
+.experience-text {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ccd6f6;
+}
+
+.highlight-number {
+    color: #64ffda;
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
 .services-title-container {
-    display: flex;
-    flex-direction: column;
-    /* Menumpuk judul dan deskripsi secara vertikal */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .services-title {
     display: flex;
     align-items: center;
-    /* Menyelaraskan judul services ke kanan */
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
 }
 
 .services-line {
+    width: 40px;
     height: 2px;
-    width: 50px;
-    /* Width of the green line */
-    background-color: #64ffda;
-    /* Color of the line */
-    margin-right: 10px;
-    margin-top: 15px;
-    /* Space between the line and the title */
+    background: #64ffda;
 }
 
-.services-header h3 {
-    font-size: 15px;
-    /* Font size for the services title */
-    margin-bottom: 0;
-    /* Menghilangkan margin bawah */
+.services-title h3 {
+    font-size: 2.5rem;
+    color: #64ffda;
+    margin: 0;
 }
 
-.services-title-container p {
-    font-size: 16px;
-    /* Ukuran font yang lebih kecil */
-    color: #808080;
-    /* Warna abu-abu */
-    margin-top: 5px;
-    /* Space above the description */
-    text-align: right;
-    /* Teks rata kanan */
-    max-width: 400px;
-}
-
-.services-header p {
-    font-size: 18px;
-    /* Font size for the description */
-    margin-top: 20px;
-    /* Space above the description */
-    text-align: left;
-    /* Teks rata kiri */
+.services-subtitle {
+    color: #8892b0;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .services-container {
     display: flex;
-    justify-content: space-between;
-    /* Distribute space evenly between service items */
-    margin: 0 50px;
-    /* Horizontal margin for the container */
-
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .service-item {
-    flex-basis: calc(33.333% - 20px);
-    /* Width for each service item, accounting for margin */
-    margin: 0 10px;
-    /* Margin for spacing between items */
-    background-color: #111;
-    /* Slightly lighter background for the service item */
-    padding: 20px;
-    /* Padding inside each service item */
-    border-radius: 10px;
-    /* Rounded corners for the service item */
-    position: relative;
-    /* Memungkinkan posisi absolut untuk :after berdasarkan .service-item */
+    background: rgba(10, 25, 47, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-radius: 15px;
+    padding: 30px;
     transition: all 0.3s ease;
-    /* Transisi halus untuk efek hover dan garis */
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-.service-item:after {
+.service-item::before {
     content: '';
-    /* Konten kosong, diperlukan untuk menampilkan :after */
     position: absolute;
-    /* Posisi absolut relatif terhadap .service-item */
+    top: 0;
     left: 0;
-    /* Mulai dari sisi kiri .service-item */
-    bottom: -10px;
-    /* Posisi di bawah .service-item */
     width: 100%;
-    /* Lebar sama dengan .service-item */
-    height: 3px;
-    /* Tinggi garis */
-    background-color: #64ffda;
-    /* Warna hijau */
-    opacity: 0;
-    /* Awalnya tidak terlihat */
-    transition: opacity 0.3s ease;
-    /* Transisi untuk efek muncul */
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.03), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
 }
 
-.service-item:hover:after {
-    opacity: 1;
-    /* Membuat garis terlihat saat di-hover */
+.service-item:hover::before {
+    transform: translateX(100%);
 }
 
 .service-item:hover {
-    background-color: #1a1a1a;
-    /* Warna latar belakang saat di-hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Menambahkan bayangan untuk efek "lift" */
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.service-item img {
+.service-icon-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
     margin-bottom: 20px;
-    /* Space below the image */
+}
+
+.service-icon-wrapper i {
+    position: relative;
+    z-index: 2;
+    font-size: 30px;
+    color: #64ffda;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 12px;
+    transform: rotate(45deg);
+    animation: pulse 2s infinite;
 }
 
 .service-item h4 {
-    font-size: 24px;
-    /* Font size for service item title */
-    margin-bottom: 10px;
-    /* Space below the title */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ccd6f6;
 }
 
-.service-item p {
-    font-size: 16px;
-    color: #808080;
-    /* Font size for service item description */
+.service-description {
+    color: #8892b0;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
-.framework-container {
-    display: flex;
-    flex-direction: row; /* Ini default, bisa dihilangkan */
-    justify-content: flex-start; /* Menengahkan item secara horizontal */
-    align-items: center; /* Menengahkan item secara vertikal */
-    gap: 30px; /* Jarak antar item */
-  }
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+}
 
-.framework {
+.tech-item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    /* Ratakan konten ke kiri */
-    text-align: left;
-    /* Untuk teks */
-    align-items: flex-start;
-    /* Menengahkan secara horizontal */
-    justify-content: center;
-    /* Menengahkan secara vertikal */
-    text-align: center;
-    /* Menengahkan teks */
-    padding-top: 15px;
-}
-
-.framework-name {
-    position: relative;
-    text-align: center;
-    margin-top: 0;
-    margin: 0;
-    font-size: 14px;
-    /* Hapus margin default */
-}
-
-.framework-name::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px;
-    /* Sesuaikan posisi garis di bawah teks */
-    height: 2px;
-    /* Ketebalan garis */
-    background-color: green;
-    /* Warna garis */
-    margin: 0 auto;
-    /* Pusatkan garis */
-}
-
-.framework img {
-    width: 40px;
-    /* Atur sesuai kebutuhan */
-    height: 40px;
-    /* Atur sesuai kebutuhan */
-    margin: 0;
-    /* Hapus margin default */
-    padding: 0;
-    /* Hapus padding default */
     align-items: center;
-    padding-bottom: 5px;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(100, 255, 218, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px) scale(1.1);
+    z-index: 2;
+}
+
+.tech-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.tech-name {
+    font-size: 0.8rem;
+    color: #ccd6f6;
+    text-align: center;
+}
+
+.tech-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 25, 47, 0.95);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #fff;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.tech-item:hover .tech-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(45deg) scale(1);
+    }
+    50% {
+        transform: rotate(45deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(45deg) scale(1);
+    }
 }
 
 @media (max-width: 768px) {
+    .services-section {
+        padding: 60px 20px;
+    }
+
     .services-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* Menyelaraskan item ke tengah */
-        justify-content: center;
-        /* Menyelaraskan konten secara vertikal ke tengah */
+        padding: 0;
+        grid-template-columns: 1fr;
     }
 
-    .service-item {
-        max-width: 100%;
-        width: 100%;
-        flex-basis: 100%;
-        /* Buat item layanan memenuhi lebar layar */
-        margin-right: 0;
-        /* Hilangkan margin kanan */
-        margin-left: 0;
-        /* Hilangkan margin kiri */
-        /* Sesuaikan padding jika diperlukan */
-        padding: 20px 15px;
-        /* Contoh padding yang menyesuaikan */
-        margin-bottom: 20px;
+    .experience-text {
+        font-size: 1.5rem;
     }
 
-    .services-header {
-        flex-direction: column;
-        align-items: flex-start;
-        /* Menyelaraskan item-item ke kiri pada mobile */
+    .services-title h3 {
+        font-size: 2rem;
     }
+}
 
-    .services-title-container {
-        align-items: flex-start;
-        /* Menyelaraskan judul dan deskripsi ke kiri pada mobile */
-    }
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: rgba(100, 255, 218, 0.1);
+    border: 2px solid #64ffda;
+    border-radius: 50%;
+    color: #64ffda;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
 
-    .services-title {
-        justify-content: flex-start;
-        /* Menyelaraskan judul services ke kiri pada mobile */
-    }
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
-    .services-title-container p {
-        text-align: center;
-        /* Teks rata tengah pada mobile */
-        margin-top: 10px;
-        /* Mengurangi ruang di atas deskripsi pada mobile */
-        max-width: 100%;
+.scroll-to-top:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-5px);
+}
+
+.scroll-to-top i {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
     }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-1.5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* Tambahkan styles baru */
+.decoration-circle {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(100, 255, 218, 0.1);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.decoration-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    border: 2px solid rgba(100, 255, 218, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tech-lines {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.tech-lines .line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent,
+        rgba(100, 255, 218, 0.1),
+        transparent);
+    animation: lineDrop 15s linear infinite;
+}
+
+.tech-lines .line:nth-child(1) { left: 20%; animation-delay: 0s; }
+.tech-lines .line:nth-child(2) { left: 50%; animation-delay: -5s; }
+.tech-lines .line:nth-child(3) { left: 80%; animation-delay: -10s; }
+
+.experience-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-left: 15px;
+    font-size: 0.9rem;
+}
+
+.experience-badge i {
+    color: #64ffda;
+}
+
+.service-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(100, 255, 218, 0.1);
+    font-family: 'Fira Code', monospace;
+}
+
+.service-hover-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(10, 25, 47, 0.9);
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-hover-info {
+    transform: translateY(0);
+}
+
+.years-active,
+.projects-count {
+    color: #64ffda;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.years-active::before {
+    content: '⌚';
+}
+
+.projects-count::before {
+    content: '📱';
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes lineDrop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.service-card {
+    flex: 1 1 300px;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }

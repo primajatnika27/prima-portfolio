@@ -1,34 +1,33 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { MessageService } from "primeng/api";
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  selector: "app-contact",
+  templateUrl: "./contact.component.html",
+  styleUrls: ["./contact.component.css"],
+  providers: [MessageService],
 })
 export class ContactComponent {
+  isFormVisible = false;
 
-  display: boolean = false;
+  constructor(private messageService: MessageService) {}
 
-  onSubmit(formValue: any): void {
-    const whatsappNumber = '6285875074351'; // Ganti dengan nomor WhatsApp Anda
-    const message = `Halo, nama saya ${formValue.name}. ${formValue.message}`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappUrl, '_blank');
-
-    
-    this.display = false;
-  }
-
-  showDialog() {
-    this.display = true;
-  }
-
-  closeModal() {
-    if (this.display) {
-      this.display = false;
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+    if (this.isFormVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
   }
 
-
+  onSubmit(formData: any) {
+    console.log("Form submitted:", formData);
+    this.messageService.add({
+      severity: "success",
+      summary: "Success",
+      detail: "Message sent successfully!",
+    });
+    this.toggleForm();
+  }
 }
